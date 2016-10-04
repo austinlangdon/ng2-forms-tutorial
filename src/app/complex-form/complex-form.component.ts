@@ -9,9 +9,24 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ComplexFormComponent implements OnInit {
 
-  constructor() { }
+  complexForm: FormGroup;
 
-  ngOnInit() {
-  }
+  constructor(formBuilder: FormBuilder) {
+    this.complexForm = formBuilder.group({
+      'firstName' : '',
+      'lastName': '',
+      'gender': false,
+      'running': false,
+      'swimming': false,
+      'hiking': false
+    });
+   }
+
+  ngOnInit() { }
+
+  submitForm(value: any): void {
+    console.log('Reactive Form Data:');
+    console.log(value);
+  } 
 
 }
